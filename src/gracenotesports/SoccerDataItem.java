@@ -9,7 +9,7 @@ package gracenotesports;
  *
  * @author ding
  */
-public class Data {
+public class SoccerDataItem {
 
     
     private String actionId;
@@ -32,7 +32,7 @@ public class Data {
     private String subpersonId;
     private String subperson;
 
-    public Data(String actionId, String competition, String matchId, String date, String action, String period, String startTime, String endtime, String homeOrAway, String teamId, String team, String personId, String person, String function, String shirtNr, String actionReason, String actionInfo, String subpersonId, String subperson) {
+    public SoccerDataItem(String actionId, String competition, String matchId, String date, String action, String period, String startTime, String endtime, String homeOrAway, String teamId, String team, String personId, String person, String function, String shirtNr, String actionReason, String actionInfo, String subpersonId, String subperson) {
         this.actionId = actionId;
         this.competition = competition;
         this.matchId = matchId;

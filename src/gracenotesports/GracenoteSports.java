@@ -19,7 +19,7 @@ public class GracenoteSports {
      * @param args the command line arguments
      */
     
-    public static ArrayList<Data> dataList;
+    public static ArrayList<SoccerDataItem> dataList;
     
     public GracenoteSports() {
         // TODO code application logic here     
@@ -28,10 +28,10 @@ public class GracenoteSports {
     }
     
     // Initial value of each data's item 
-    private static Data initalData(String dataItem[]){
+    private static SoccerDataItem initalData(String dataItem[]){
         
-        Data data=null;
-        data=new Data(dataItem[0],dataItem[1],dataItem[2],dataItem[3],dataItem[4],dataItem[5],dataItem[6],dataItem[7],dataItem[8],dataItem[9],dataItem[10],dataItem[11],dataItem[12],dataItem[13],dataItem[14],dataItem[15],dataItem[16],dataItem[17],dataItem[18]);
+        SoccerDataItem data=null;
+        data=new SoccerDataItem(dataItem[0],dataItem[1],dataItem[2],dataItem[3],dataItem[4],dataItem[5],dataItem[6],dataItem[7],dataItem[8],dataItem[9],dataItem[10],dataItem[11],dataItem[12],dataItem[13],dataItem[14],dataItem[15],dataItem[16],dataItem[17],dataItem[18]);
         return data;
     }
     
@@ -46,7 +46,7 @@ public class GracenoteSports {
                     String item[] = line.split("，");                   
                     String dataLine = item[item.length-1];                    
                     String dataItems[] = dataLine.split(",");
-                    Data data=initalData(dataItems);
+                    SoccerDataItem data=initalData(dataItems);
                     dataList.add(data);
                 } 
             } catch (Exception e) { 
@@ -56,7 +56,7 @@ public class GracenoteSports {
     }
     
     // get the Initialed datalist
-    public static ArrayList<Data> getDataList(){
+    public static ArrayList<SoccerDataItem> getSoccerDataItemList(){
         return dataList;
     }
     

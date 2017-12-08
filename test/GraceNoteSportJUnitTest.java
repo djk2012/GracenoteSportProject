@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import gracenotesports.Data;
+import gracenotesports.SoccerDataItem;
 import gracenotesports.GracenoteSports;
 import java.io.FileNotFoundException;
 import org.junit.After;
@@ -25,7 +25,7 @@ public class GraceNoteSportJUnitTest {
     @Test
     public void validate_size_of_datalist() throws FileNotFoundException {
         GracenoteSports gs = new GracenoteSports();
-        int numberOfData=gs.getDataList().size();
+        int numberOfData=gs.getSoccerDataItemList().size();
         int sizeOfDatalist=3381;
         Assert.assertEquals(numberOfData, sizeOfDatalist);
 
@@ -35,7 +35,7 @@ public class GraceNoteSportJUnitTest {
     @Test
     public void validate_value_of_datalistItem() throws FileNotFoundException {
         GracenoteSports gs = new GracenoteSports();
-        Data data=gs.getDataList().get(0);
+        SoccerDataItem data=gs.getSoccerDataItemList().get(0);
         String ActionIdOfFirstData="22039489";
         Assert.assertEquals(data.getActionId(), ActionIdOfFirstData);
 

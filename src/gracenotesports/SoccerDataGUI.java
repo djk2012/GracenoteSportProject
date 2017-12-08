@@ -61,7 +61,7 @@ public class SoccerDataGUI extends JFrame {
     private ListModel searchItem;
 
     GracenoteSports gs = new GracenoteSports();
-    private ArrayList<Data> datalist = gs.getDataList();   //Inital the data in the datalist
+    private ArrayList<SoccerDataItem> soccerDataItemlist = gs.getSoccerDataItemList();   //Inital the data in the soccerDataItemlist
 
     private String selectedDropDownlistColumn;
 
@@ -155,83 +155,83 @@ public class SoccerDataGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            ArrayList<Data> al = new ArrayList();
+            ArrayList<SoccerDataItem> al = new ArrayList();
             String inputItem = searchField.getText();
             String compareItem = null;
             
-            for (int i = 0; i < datalist.size(); i++) {
+            for (int i = 0; i < soccerDataItemlist.size(); i++) {
                 switch (selectedDropDownlistColumn) {
                     case "actionId":
                         // Statements
-                        compareItem = datalist.get(i).getActionId();
+                        compareItem = soccerDataItemlist.get(i).getActionId();
                         break; // optional                  
                     case "competition":
                         // Statements
-                        compareItem = datalist.get(i).getCompetition();
+                        compareItem = soccerDataItemlist.get(i).getCompetition();
                         break;
                     case "matchId":
                         // Statements
-                        compareItem = datalist.get(i).getMatchId();
+                        compareItem = soccerDataItemlist.get(i).getMatchId();
                         break;
                     case "date":
                         // Statements
-                        compareItem = datalist.get(i).getDate();
+                        compareItem = soccerDataItemlist.get(i).getDate();
                         break;
                     case "action":
                         // Statements
-                        compareItem = datalist.get(i).getAction();
+                        compareItem = soccerDataItemlist.get(i).getAction();
                         break;
                     case "period":
                         // Statements
-                        compareItem = datalist.get(i).getPeriod();
+                        compareItem = soccerDataItemlist.get(i).getPeriod();
                         break;
                     case "startTime":
                         // Statements
-                        compareItem = datalist.get(i).getStartTime();
+                        compareItem = soccerDataItemlist.get(i).getStartTime();
                         break;
                     case "endtime":
                         // Statements
-                        compareItem = datalist.get(i).getEndtime();
+                        compareItem = soccerDataItemlist.get(i).getEndtime();
                         break;
                     case "homeOrAway":
                         // Statements
-                        compareItem = datalist.get(i).getHomeOrAway();
+                        compareItem = soccerDataItemlist.get(i).getHomeOrAway();
                         break;
                     case "teamId":
                         // Statements
-                        compareItem = datalist.get(i).getTeamId();
+                        compareItem = soccerDataItemlist.get(i).getTeamId();
                         break;
                     case "team":
                         // Statements
-                        compareItem = datalist.get(i).getTeam();
+                        compareItem = soccerDataItemlist.get(i).getTeam();
                         break;
                     case "personId":
                         // Statements
-                        compareItem = datalist.get(i).getPersonId();
+                        compareItem = soccerDataItemlist.get(i).getPersonId();
                         break;
                     case "person":
                         // Statements
-                        compareItem = datalist.get(i).getPerson();
+                        compareItem = soccerDataItemlist.get(i).getPerson();
                         break;
                     case "function":
                         // Statements
-                        compareItem = datalist.get(i).getFunction();
+                        compareItem = soccerDataItemlist.get(i).getFunction();
                         break;
                     case "shirtNr":
                         // Statements
-                        compareItem = datalist.get(i).getShirtNr();
+                        compareItem = soccerDataItemlist.get(i).getShirtNr();
                         break;
                     case "actionReason":
                         // Statements
-                        compareItem = datalist.get(i).getActionReason();
+                        compareItem = soccerDataItemlist.get(i).getActionReason();
                         break;
                     case "actionInfo":
                         // Statements
-                        compareItem = datalist.get(i).getActionInfo();
+                        compareItem = soccerDataItemlist.get(i).getActionInfo();
                         break;
                     case "subperson":
                         // Statements
-                        compareItem = datalist.get(i).getSubperson();
+                        compareItem = soccerDataItemlist.get(i).getSubperson();
                         break;
                     // You can have any number of case statements.
                     default: // Optional
@@ -239,16 +239,13 @@ public class SoccerDataGUI extends JFrame {
                 }
 
                 if (inputItem.equals(compareItem)) {
-                    al.add(datalist.get(i));
+                    al.add(soccerDataItemlist.get(i));
                 }
 
             }
 
             dataViewList.setModel(new DefaultListModel());
-            for (int i = 0; i < al.size(); i++) {
-                ((DefaultListModel) dataViewList.getModel()).addElement(al.get(i).toString());
-                
-            }
+            updateDataVIiewList();       
         }
 
     }
@@ -260,13 +257,12 @@ public class SoccerDataGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
             dataViewList.setModel(new DefaultListModel());
-            
-            for (int i = 0; i < datalist.size(); i++) {
-                ((DefaultListModel) dataViewList.getModel()).addElement(datalist.get(i).toString());               
-            }           
+            updateDataVIiewList();       
         }
 
     }
+    
+
 
     // implement the actionLister of dropdownlist
     public class dropDownListListener implements ActionListener {
@@ -277,6 +273,14 @@ public class SoccerDataGUI extends JFrame {
         }
 
     }
+    
+   public void updateDataVIiewList(){
+       
+            for (int i = 0; i < soccerDataItemlist.size(); i++) {
+                ((DefaultListModel) dataViewList.getModel()).addElement(soccerDataItemlist.get(i).toString());               
+            }   
+            
+   }
 
     public static void main(String[] args) throws IOException {
 
